@@ -1,0 +1,93 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyRootNamespaceHttp\Controllers\Controller;
+
+use App\Http\Resources\{{modelName}} as {{modelName}}Resource;
+use DummyRootNamespace{{modelName}};
+use Illuminate\Http\Request;
+
+/*
+|--------------------------------------------------------------------------
+| 
+|--------------------------------------------------------------------------
+|
+| Here is where the controller   DummyClass
+|
+|@autor : 
+|@email : 
+|
+|
+|
+|--Generated with ❤❤❤❤ by slugger---
+|*/
+
+
+class DummyClass extends Controller
+{
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        return  {{modelName}}Resource::collection({{modelName}}::paginate(10));
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @return Response
+     */
+    public function store(Request $request)
+    {
+       {{modelName}}::create($request->all());
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     *
+     * @return Response
+     */
+    public function show($id)
+    {
+        return new {{modelName}}Resource({{modelName}}::findOrFail($id));
+    }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     *
+     * @return Response
+     */
+    public function update($id, Request $request)
+    {
+
+        ${{crudNameSingular}} ={{modelName}}::::findOrFail($id);
+        ${{crudNameSingular}}->update($request->all());
+        return $article;
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     *
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        ${{crudNameSingular}} = {{modelName}}::findOrFail($id);
+        ${{crudNameSingular}}->delete();
+        return new {{modelName}}Resource({{modelName}}::findOrFail($id));
+    }
+
+}

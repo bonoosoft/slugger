@@ -1,0 +1,19 @@
+{
+    "name": "sluggergen/slugger",
+    "description": "Laravel Rest API Generator",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dominique DAMBA",
+            "email": "dominiquedamba@outlook.com"
+        }
+    ],
+      "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Slugger\\Crud\\": "src/"
+        }
+    }
+}

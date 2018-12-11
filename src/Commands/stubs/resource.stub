@@ -1,0 +1,40 @@
+<?php
+
+namespace DummyNamespace;
+
+use Illuminate\Http\Resources\Json\Resource;
+
+
+/*
+|--------------------------------------------------------------------------
+| 
+|--------------------------------------------------------------------------
+|
+| Here is where the resource   DummyClass
+|
+|@autor : 
+|@email : 
+|
+|
+|
+|--Generated with ❤❤❤❤ by slugger---
+|*/
+
+
+class DummyClass extends Resource
+{
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    public function toArray($request)
+    {
+        return [
+
+        {{fillable}}
+        
+        ];
+    }
+}
