@@ -71,7 +71,7 @@ class DummyClass extends Controller
     public function update($id, Request $request)
     {
 
-        ${{crudNameSingular}} ={{modelName}}::::findOrFail($id);
+        ${{crudNameSingular}} ={{modelName}}::findOrFail($id);
         ${{crudNameSingular}}->update($request->all());
         return $article;
     }
