@@ -10,9 +10,9 @@
             "homepage": "https://github.com/sluggergen/slugger"
         }
     ],
-    "require": {
-        "php" : ">=5.6"
-    },
+   
+    "minimum-stability": "stable",
+    "require": {},
     "autoload": {
         "psr-4": {
             "Slugger\\Crud\\": "src/"
