@@ -141,4 +141,4 @@ These fields are supported for migration and view's form:
 
 #### Credit : 
 
-slugger laravel rest api generator it's based on rolandalla/laravelcrud [![Github](https://github.com/rolandalla/laravelcrud)
+slugger laravel rest api generator it's based on rolandalla/laravelcrud [Github](https://github.com/rolandalla/laravelcrud)
