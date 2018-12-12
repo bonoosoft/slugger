@@ -1,7 +1,7 @@
 {
     "name": "sluggergen/slugger",
-    "description": "Laravel Rest API Generator",
-    "type": "library",
+    "description": "Laravel Rest API crud Generator",
+    "type": "package",
     "license": "MIT",
     "authors": [
         {
@@ -9,8 +9,7 @@
             "email": "dominiquedamba@outlook.com"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "minimum-stability": "stable",
     "require": {
         "php" : ">=5.6"
     },
