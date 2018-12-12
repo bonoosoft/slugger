@@ -6,11 +6,10 @@
     "authors": [
         {
             "name": "Dominique DAMBA",
-            "email": "dominiquedamba@outlook.com"
+            "email": "dominiquedamba@outlook.com",
+            "homepage": "https://github.com/sluggergen/slugger"
         }
     ],
-    "minimum-stability":"dev",
-    "version": "1.0.0",
     "require": {
         "php" : ">=5.6"
     },
