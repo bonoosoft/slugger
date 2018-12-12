@@ -1,7 +1,7 @@
 {
     "name": "sluggergen/slugger",
     "description": "Laravel Rest API crud Generator",
-    "type": "package",
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
