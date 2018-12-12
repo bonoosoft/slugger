@@ -9,7 +9,7 @@ Laravel Rest API CRUD Generator
 
 1. Run
     ```
-    composer require sluggergen/slugger
+    composer require sluggergen/slugger dev-master
     ```
 
 2. Add service provider to **/config/app.php** file.
@@ -103,8 +103,9 @@ php artisan migrate
 ```
 
 If you chose not to add the crud route in automatically (see above), you will need to include the route manually.
+check your routes/api.php file
 ```php
-Route::resource('posts', 'PostsController');
+Route::apiResource('posts', 'PostsController');
 ```
 
 ### Supported Field Types
