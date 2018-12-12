@@ -9,7 +9,6 @@
             "email": "dominiquedamba@outlook.com"
         }
     ],
-      "minimum-stability": "",
     "require": {
         "php" : ">=5.6"
     },
