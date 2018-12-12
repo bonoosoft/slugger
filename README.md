@@ -1,6 +1,6 @@
 
-Laravel CRUD Generator
-<a href="http://www.rolandalla.com/laravel-crud-generator/">http://www.rolandalla.com/laravel-crud-generator/ </a>
+Laravel Rest API CRUD Generator
+
 ### Requirements
     Laravel >=5.1
     PHP >= 5.5.9
@@ -9,7 +9,7 @@ Laravel CRUD Generator
 
 1. Run
     ```
-    composer require roland/crud dev-master
+    composer require sluggergen/slugger
     ```
 
 2. Add service provider to **/config/app.php** file.
@@ -17,42 +17,20 @@ Laravel CRUD Generator
     'providers' => [
         ...
 
-         Roland\Crud\CrudServiceProvider::class,
+         Slugger\Crud\CrudServiceProvider::class,
     ],
     ```
   
 
 3. Publish config file & generator template files.
     ```
-    php artisan vendor:publish --provider="Roland\Crud\CrudServiceProvider"
+    php artisan vendor:publish --provider="Slugger\Crud\CrudServiceProvider"
     ```
 4. All Done.
     ```
     Your Crud Generator is Installed :)
     ```
-### Optional
 
-1. Install **laravelcollective/html** helper package if you haven't installed it already.
-    * Run
-
-    ```
-    composer require laravelcollective/html
-    ```
-
-    * Add service provider & aliases to **config/app.php**.
-    ```php
-    'providers' => [
-        ...
-
-        Collective\Html\HtmlServiceProvider::class,
-    ],
-
-    'aliases' => [
-        ...
-
-        'Form' => Collective\Html\FormFacade::class,
-        'HTML' => Collective\Html\HtmlFacade::class,
-    ],
     ```
 2. Run ```composer dump-autoload```
 
@@ -159,52 +137,5 @@ These fields are supported for migration and view's form:
 * double
 * float
 
-### Custom Generator's Stub Template
-
-You can customize the generator's stub **vendor/roland/crud/Commands/stubs** to achieve your need.
-
-1. Make sure you've published package's assets.
-    ```
-    php artisan vendor:publish
-    ```
-2. From the directory **/resources/backEnd/** you can modify or customize the created View files.
-
-3. From the directory **/resources/backLayout/** you can modify or customize the created Master Layout.
-
-4. From the file **/routes/web.php** you can modify or customize the created route.
-
-4. From the file **/app/config/crudgenerator.php** you can modify or customize all the needed paths.
 
 
-### Suggestion 
-Start your project using this Laravel 5.4 Advanced Starter :
-Sentinel,
-Crud Generator,
-* Laravel 5.4.x
-* Twitter Bootstrap 3.x
-* Back-end
-    * Automatic install and setup website.
-    * User management.
-    * Role management.
-    * Dashboard.
-    * Gentelella Dashboard Ready.
-* Front-end
-    * User login, registration
-    * soon will be more...
-* Packages included:
-    * Datatables Bundle
-    * Sentinel
-    * Crud generator
-Check out: http://www.rolandalla.com/laravel-5-4-advanced-starter/
-Github: https://github.com/roladn/laravel-sentinel-crud-starter
-
-
-
-
-
-
-
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
-
-[![Beerpay](https://beerpay.io/roladn/laravelcrud/badge.svg?style=beer-square)](https://beerpay.io/roladn/laravelcrud)  [![Beerpay](https://beerpay.io/roladn/laravelcrud/make-wish.svg?style=flat-square)](https://beerpay.io/roladn/laravelcrud?focus=wish)
