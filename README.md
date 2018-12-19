@@ -47,8 +47,6 @@ php artisan crud:generate Posts --fields="title:string, body:text"
 You can also easily include route, set primary key, set views directory etc through options **--route**, **--pk**, **--view-path** as belows:
 
 ```
-php artisan crud:generate Posts --fields="title:string:required, body:text:required" --route=yes --pk=id --view-path="admin" --namespace=Admin --route-group=admin
-```
 
 Options:
 
@@ -148,3 +146,9 @@ slugger laravel rest api generator it's based on rolandalla/laravelcrud [Github]
 Hey dude! Help me out for a couple of :beers:!
 
 [![Beerpay](https://beerpay.io/sluggergen/slugger/badge.svg?style=beer-square)](https://beerpay.io/sluggergen/slugger)  [![Beerpay](https://beerpay.io/sluggergen/slugger/make-wish.svg?style=flat-square)](https://beerpay.io/sluggergen/slugger?focus=wish)
+
+
+or 
+
+
+Tip us on  [Tipeee] (https://fr.tipeee.com/slugger)
