@@ -53,7 +53,6 @@ Options:
 - --fields : Fields name for the form & model.
 - --route : Include Crud route to routes.php? yes or no.
 - --pk : The name of the primary key.
-- --view-path : The name of the view path.
 - --namespace : Namespace of the controller.
 - --route-group : Prefix of the route group.
 
@@ -81,10 +80,6 @@ For migration generator:
 php artisan crud:migration posts --schema="title:string, body:text"
 ```
 
-For view generator:
-
-```
-php artisan crud:view posts --fields="title:string, body:text" --view-path="directory" --route-group=admin
 ```
 Generate Pivot tables
 
