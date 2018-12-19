@@ -26,7 +26,7 @@ class CrudCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Generate Crud including controller, model ,resource & migrations.';
+    protected $description = 'Generate Crud including controller, model ,resource,test & migrations.';
 
     /** @var string  */
     protected $routeName = '';
@@ -102,11 +102,12 @@ class CrudCommand extends Command
         }
 
 
-       $this->call('crud:controller', ['name' => $controllerNamespace . $name . 'Controller', '--crud-name' => $name, '--model-name' => $modelName, '--view-path' => $viewPath, '--required-fields' => $requiredFields, '--route-group' => $routeGroup]);
+        $this->call('crud:controller', ['name' => $controllerNamespace . $name . 'Controller', '--crud-name' => $name, '--model-name' => $modelName, '--view-path' => $viewPath, '--required-fields' => $requiredFields, '--route-group' => $routeGroup]);
         $this->call('crud:model', ['name' => $modelName, '--fillable' => $fillable, '--table' => $tableName]);
         $this->call('crud:resource', ['name' => $modelName, '--fillable' => $tab, '--table' => $tableName]);
         $this->call('crud:migration', ['name' => $migrationName, '--schema' => $fields, '--pk' => $primaryKey]);
-        //$this->call('crud:view', ['name' => $viewName, '--fields' => $fields, '--view-path' => $viewPath, '--route-group' => $routeGroup]);
+        $this->call('make:test', ['name' => $modelName]);
+
         // For optimizing the class loader
         $this->callSilent('optimize');
 

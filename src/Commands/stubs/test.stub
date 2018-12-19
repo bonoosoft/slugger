@@ -1,0 +1,36 @@
+<?php
+
+namespace Tests\Unit;
+
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
+class DummyClassTest  extends TestCase
+{
+    /**
+     * A basic functional test example.
+     *
+     * @return string
+     */
+    public function testFecthData()
+    {
+        $response = $this->json('GET', '/your_test_route');
+        $response->assertStatus(200);
+    }
+
+
+    /**
+     * A basic functional test example.
+     *
+     * @return string
+     */
+    public function testGetSpecificData()
+    {
+        $response = $this->json('GET', '/your_test_route/1');
+
+        $response->assertStatus(200);
+    }
+
+
+}

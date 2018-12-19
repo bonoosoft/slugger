@@ -33,7 +33,7 @@ class CrudServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        
+
           if ($this->app->runningInConsole()) {
                 $this->commands([
                     Commands\CrudCommand::class,
@@ -42,8 +42,9 @@ class CrudServiceProvider extends ServiceProvider
                     Commands\CrudResourceCommand::class,
                     Commands\CrudMigrationCommand::class,
                     Commands\CrudViewCommand::class,
+                    Commands\CrudUnitTestCommand::class,
                     Commands\PivotMigrationCommand::class,
-                    
+
                 ]);
             }
 

@@ -10,13 +10,13 @@ use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
-| 
+|
 |--------------------------------------------------------------------------
 |
 | Here is where the controller   DummyClass
 |
-|@autor : 
-|@email : 
+|@autor :
+|@email :
 |
 |
 |
@@ -46,6 +46,8 @@ class DummyClass extends Controller
     public function store(Request $request)
     {
        {{modelName}}::create($request->all());
+       return response()->json(['message' => ' {{modelName}} Successfully created']);
+
     }
 
     /**
@@ -73,7 +75,7 @@ class DummyClass extends Controller
 
         ${{crudNameSingular}} ={{modelName}}::findOrFail($id);
         ${{crudNameSingular}}->update($request->all());
-        return $article;
+        return response()->json(['message' => ' {{modelName}} Successfully updated !']);
     }
 
     /**
@@ -87,7 +89,7 @@ class DummyClass extends Controller
     {
         ${{crudNameSingular}} = {{modelName}}::findOrFail($id);
         ${{crudNameSingular}}->delete();
-        return new {{modelName}}Resource({{modelName}}::findOrFail($id));
+        return response()->json(['message' => ' {{modelName}} Successfully deleted !']);
     }
 
 }
