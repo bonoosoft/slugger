@@ -10,14 +10,10 @@ use Illuminate\Http\Resources\Json\Resource;
 | 
 |--------------------------------------------------------------------------
 |
-| Here is where the resource   DummyClass
-|
-|@autor : 
-|@email : 
+| Resource   DummyClass
 |
 |
 |
-|--Generated with ❤❤❤❤ by slugger---
 |*/
 
 
@@ -37,4 +33,7 @@ class DummyClass extends Resource
         
         ];
     }
+
+     /* --Generated with ❤ by Slugger ---*/
+
 }

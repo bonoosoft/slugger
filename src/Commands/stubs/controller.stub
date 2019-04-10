@@ -13,83 +13,108 @@ use Illuminate\Http\Request;
 |
 |--------------------------------------------------------------------------
 |
-| Here is where the controller   DummyClass
-|
-|@autor :
-|@email :
+| Controller   DummyClass
 |
 |
 |
-|--Generated with ❤❤❤❤ by slugger---
 |*/
 
 
 class DummyClass extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        return  {{modelName}}Resource::collection({{modelName}}::paginate(10));
-    }
+/**
+   * Display a listing of the resource.
+   *
+   * @return Response
+   */
+  public function index()
+  {
+
+              if(!{{modelName}}Resource::collection({{modelName}}::paginate(10))->isEmpty()){
+                  return response()->json(['content'=>{{modelName}}::orderBy('created_at','desc')->paginate(10),'message'=>'list of {{modelName}}s'],200,['Content-Type'=>'application/json']);
+
+              }
+              return response()->json(['message'=>'{{modelName}}s empty !']);
+
+  }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store(Request $request)
-    {
-       {{modelName}}::create($request->all());
-       return response()->json(['message' => ' {{modelName}} Successfully created']);
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @return Response
+   */
+  public function store(Request $request)
+  {
+     if ({{modelName}}::create($request->all())) {
+                return response()->json(['message' => ' {{modelName}} stored successful'],200,['Content-Type'=>'application/json']);
 
-    }
+            }
+     return response()->json(['message'=>'store {{modelName}} failed !']);
+  }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     *
-     * @return Response
-     */
-    public function show($id)
-    {
-        return new {{modelName}}Resource({{modelName}}::findOrFail($id));
-    }
+  /**
+   * Display the specified resource.
+   *
+   * @param  int  $id
+   *
+   * @return Response
+   */
+  public function show(Request $request,$slug)
+   {
+          if ({{modelName}}::where('slug','=',$slug)->first()){
+          $id = {{modelName}}::where('slug','=',$slug)->first()->id;
+          return response()->json(['content'=>new {{modelName}}Resource({{modelName}}::where('slug','=',$slug)->first()),'message'=>'detail {{modelName}}'],200,['Content-Type'=>'application/json']);
+          }
+
+        notFoundLog({{modelName}}::class,$id);
+        return response()->json(['message' => 'echec ,{{modelName}} does not exist'],404,['Content-Type'=>'application/json']);
+  }
 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  int  $id
-     *
-     * @return Response
-     */
-    public function update($id, Request $request)
-    {
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param  int  $id
+   *
+   * @return Response
+   */
+  public function update(Request $request)
+  {
+        if ({{modelName}}::where('slug','=',$slug)->first()){
+         ${{crudNameSingular}} = {{modelName}}:::where('slug','=',$slug)->first();
+         if (${{crudNameSingular}}->update($request->all())){
+             ${{crudNameSingular}} ={{modelName}}::where('slug','=',$slug)->first();
+             return response()->json(['message' => ' {{modelName}} updated successful !'],200,['Content-Type'=>'application/json']);
+         }else{
+        return response()->json(['message' => ' updated failed  !'],400,['Content-Type'=>'application/json']);
+     }
 
-        ${{crudNameSingular}} ={{modelName}}::findOrFail($id);
-        ${{crudNameSingular}}->update($request->all());
-        return response()->json(['message' => ' {{modelName}} Successfully updated !']);
-    }
+     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     *
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        ${{crudNameSingular}} = {{modelName}}::findOrFail($id);
-        ${{crudNameSingular}}->delete();
-        return response()->json(['message' => ' {{modelName}} Successfully deleted !']);
-    }
+    notFoundLog({{modelName}}::class,setZero());
+    return response()->json(['message' => ' {{modelName}} does not exist !'],404,['Content-Type'=>'application/json']);
+   }
+
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  int  $id
+   *
+   * @return Response
+   */
+  public function destroy(Request $request,$slug)
+   {
+            if ({{modelName}}::where('slug','=',$slug)->first()){
+                  ${{crudNameSingular}} = {{modelName}}::where('slug','=',$slug)->first();
+                  ${{crudNameSingular}}->delete();
+                  return response()->json(['message' => ' {{modelName}} deleted successful'],200,['Content-Type'=>'application/json']);
+             }
+
+       return response()->json(['message' => ' {{modelName}} does not exist !'],404,['Content-Type'=>'application/json']);
+   }
+
+ /* --Generated with ❤ by slugger---*/
 
 }

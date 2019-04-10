@@ -9,14 +9,10 @@ use Illuminate\Database\Schema\Blueprint;
 | 
 |--------------------------------------------------------------------------
 |
-| Here is where the migration class   DummyClass
-|
-|@autor : 
-|@email : 
+| Migration class   DummyClass
 |
 |
 |
-|--Generated with ❤❤❤❤ by slugger---
 |*/
 
 
@@ -42,5 +38,7 @@ class DummyClass extends Migration
     {
         {{schema_down}}
     }
+
+     /* --Generated with ❤ by Slugger ---*/
 
 }

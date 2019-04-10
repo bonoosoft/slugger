@@ -11,14 +11,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 | 
 |--------------------------------------------------------------------------
 |
-| Here is where the model   DummyClass
-|
-|@autor : 
-|@email : 
+| Model   DummyClass
 |
 |
 |
-|--Generated with ❤❤❤❤ by slugger---
 |*/
 
 
@@ -42,5 +38,8 @@ class DummyClass extends Model
 
     use SoftDeletes;
     protected $dates = ['deleted_at'];
+
+ /* --Generated with ❤ by Slugger ---*/
+
 
 }

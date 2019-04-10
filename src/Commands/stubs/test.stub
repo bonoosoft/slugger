@@ -6,6 +6,18 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
+/*
+|--------------------------------------------------------------------------
+|
+|--------------------------------------------------------------------------
+|
+| Test   DummyClass
+|
+|
+|
+|*/
+
+
 class DummyClassTest  extends TestCase
 {
     /**
@@ -32,5 +44,6 @@ class DummyClassTest  extends TestCase
         $response->assertStatus(200);
     }
 
+ /* --Generated with ❤ by Slugger ---*/
 
 }
