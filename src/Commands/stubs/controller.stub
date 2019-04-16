@@ -64,11 +64,9 @@ class DummyClass extends Controller
   public function show(Request $request,$slug)
    {
           if ({{modelName}}::where('slug','=',$slug)->first()){
-          $id = {{modelName}}::where('slug','=',$slug)->first()->id;
           return response()->json(['content'=>new {{modelName}}Resource({{modelName}}::where('slug','=',$slug)->first()),'message'=>'detail {{modelName}}'],200,['Content-Type'=>'application/json']);
           }
 
-        notFoundLog({{modelName}}::class,$id);
         return response()->json(['message' => 'echec ,{{modelName}} does not exist'],404,['Content-Type'=>'application/json']);
   }
 
@@ -76,7 +74,7 @@ class DummyClass extends Controller
   /**
    * Update the specified resource in storage.
    *
-   * @param  int  $id
+   * @param  int  $slug
    *
    * @return Response
    */
@@ -93,14 +91,13 @@ class DummyClass extends Controller
 
      }
 
-    notFoundLog({{modelName}}::class,setZero());
     return response()->json(['message' => ' {{modelName}} does not exist !'],404,['Content-Type'=>'application/json']);
    }
 
   /**
    * Remove the specified resource from storage.
    *
-   * @param  int  $id
+   * @param  int  $slug
    *
    * @return Response
    */
