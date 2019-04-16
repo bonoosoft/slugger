@@ -2,7 +2,7 @@
 Laravel Rest API CRUD Generator
 
 ### Requirements
-    Laravel >=5.1
+    Laravel >=5.1 and Laravel <= 5.6.*
     PHP >= 5.5.9
 
 ## Installation
@@ -28,15 +28,9 @@ Laravel Rest API CRUD Generator
     ```
 4. All Done.
     ```
-    Your Crud Generator is Installed :)
     ```
 
     ```
-2. Run ```composer dump-autoload```
-
-Note: You should have configured database for this operation.
-
-## Commands
 
 #### Crud command:
 
@@ -65,7 +59,7 @@ Options:
 For controller generator:
 
 ```
-php artisan crud:controller PostsController --crud-name=posts --model-name=Post --view-path="directory" --route-group=admin
+php artisan crud:controller PostsController --crud-name=posts --model-name=Post  --route-group=admin
 ```
 
 For model generator:
@@ -146,4 +140,4 @@ Hey dude! Help me out for a couple of :beers:!
 or 
 
 
-Tip us on  [Tipeee] (https://fr.tipeee.com/slugger)
+Tip us on  (https://fr.tipeee.com/slugger)
