@@ -38,7 +38,7 @@ Laravel Rest API CRUD Generator
 php artisan crud:generate Posts --fields="title:string, body:text"
 ```
 
-You can also easily include route, set primary key, set views directory etc through options **--route**, **--pk**, **--view-path** as belows:
+You can also easily include route, set primary key, set views directory etc through options **--route**, **--pk** :
 
 ```
 
