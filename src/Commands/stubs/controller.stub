@@ -81,7 +81,7 @@ class DummyClass extends Controller
   public function update(Request $request)
   {
         if ({{modelName}}::where('slug','=',$slug)->first()){
-         ${{crudNameSingular}} = {{modelName}}:::where('slug','=',$slug)->first();
+         ${{crudNameSingular}} = {{modelName}}::where('slug','=',$slug)->first();
          if (${{crudNameSingular}}->update($request->all())){
              ${{crudNameSingular}} ={{modelName}}::where('slug','=',$slug)->first();
              return response()->json(['message' => ' {{modelName}} updated successful !'],200,['Content-Type'=>'application/json']);
