@@ -23,6 +23,9 @@ use Illuminate\Http\Request;
 class DummyClass extends Controller
 {
 
+
+
+
 /**
    * Display a listing of the resource.
    *
@@ -31,13 +34,20 @@ class DummyClass extends Controller
   public function index()
   {
 
-              if(!{{modelName}}Resource::collection({{modelName}}::paginate(10))->isEmpty()){
-                  return response()->json(['content'=>{{modelName}}::orderBy('created_at','desc')->paginate(10),'message'=>'list of {{modelName}}s'],200,['Content-Type'=>'application/json']);
+              if(!{{modelName}}Resource::collection({{modelName}}::all())->isEmpty()){
+                  return response()->json(
+                      [
+                          'content'=> {{modelName}}Resource::collection({{modelName}}::all()),
+                          'message'=>'list of {{modelName}}s'
+                      ],200,['Content-Type'=>'application/json']);
 
               }
-              return response()->json(['message'=>'{{modelName}}s empty !']);
+
+    return response()->json(['message'=>'{{modelName}}s empty !']);
 
   }
+
+
 
 
   /**
@@ -48,27 +58,51 @@ class DummyClass extends Controller
   public function store(Request $request)
   {
      if ({{modelName}}::create($request->all())) {
-                return response()->json(['message' => ' {{modelName}} stored successful'],200,['Content-Type'=>'application/json']);
+                return response()->json(
+                    [
+                        'message' => ' {{modelName}} stored successful',
+                        'status' => true
+                     ],200,['Content-Type'=>'application/json']);
 
             }
-     return response()->json(['message'=>'store {{modelName}} failed !']);
+     return response()->json(
+         [
+             'message'=>'store {{modelName}} failed !',
+             'status' => false
+        ],200);
   }
+
+
+
 
   /**
    * Display the specified resource.
    *
-   * @param  int  $id
+   * @param  int  $slug
    *
    * @return Response
    */
-  public function show(Request $request,$slug)
+  public function show($slug)
    {
-          if ({{modelName}}::where('slug','=',$slug)->first()){
-          return response()->json(['content'=>new {{modelName}}Resource({{modelName}}::where('slug','=',$slug)->first()),'message'=>'detail {{modelName}}'],200,['Content-Type'=>'application/json']);
+          if ({{modelName}}::where('slug',$slug)->first()){
+                return response()->json(
+                    [
+                        'content'=> new {{modelName}}Resource({{modelName}}::where('slug',$slug)->first()),
+                        'message'=>'detail {{modelName}}',
+                        'status' => false
+                    ],
+                    200,
+                    ['Content-Type'=>'application/json']
+                );
           }
 
-        return response()->json(['message' => 'echec ,{{modelName}} does not exist'],404,['Content-Type'=>'application/json']);
+        return response()->json([
+            'message' => 'echec ,
+            {{modelName}} does not exist'],
+            404,
+           ['Content-Type'=>'application/json']);
   }
+
 
 
   /**
@@ -80,19 +114,29 @@ class DummyClass extends Controller
    */
   public function update(Request $request)
   {
-        if ({{modelName}}::where('slug','=',$slug)->first()){
-         ${{crudNameSingular}} = {{modelName}}::where('slug','=',$slug)->first();
+        if ({{modelName}}::where('slug',$request->slug)->first()){
+         ${{crudNameSingular}} = {{modelName}}::where('slug',$request->slug)->first();
          if (${{crudNameSingular}}->update($request->all())){
-             ${{crudNameSingular}} ={{modelName}}::where('slug','=',$slug)->first();
-             return response()->json(['message' => ' {{modelName}} updated successful !'],200,['Content-Type'=>'application/json']);
-         }else{
-        return response()->json(['message' => ' updated failed  !'],400,['Content-Type'=>'application/json']);
-     }
 
+             return response()->json(
+                 [
+                     'message' => ' {{modelName}} updated successful !'
+                     'status' => true
+                 ],200,['Content-Type'=>'application/json']);
+         }else{
+          return response()->json(
+              [
+                  'message' => ' updated failed  !'
+                  'status' => false
+              ],200,
+              ['Content-Type'=>'application/json']);
+       }
      }
 
     return response()->json(['message' => ' {{modelName}} does not exist !'],404,['Content-Type'=>'application/json']);
    }
+
+
 
   /**
    * Remove the specified resource from storage.
@@ -101,12 +145,18 @@ class DummyClass extends Controller
    *
    * @return Response
    */
-  public function destroy(Request $request,$slug)
+  public function destroy($slug)
    {
-            if ({{modelName}}::where('slug','=',$slug)->first()){
-                  ${{crudNameSingular}} = {{modelName}}::where('slug','=',$slug)->first();
+            if ({{modelName}}::where('slug',$slug)->first()){
+                  ${{crudNameSingular}} = {{modelName}}::where('slug',$slug)->first();
                   ${{crudNameSingular}}->delete();
-                  return response()->json(['message' => ' {{modelName}} deleted successful'],200,['Content-Type'=>'application/json']);
+                  return response()->json(
+                      [
+                          'message' => ' {{modelName}} deleted successful',
+                          'status' => true
+                      ],
+                      200,
+                      ['Content-Type'=>'application/json']);
              }
 
        return response()->json(['message' => ' {{modelName}} does not exist !'],404,['Content-Type'=>'application/json']);
