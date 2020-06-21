@@ -124,20 +124,3 @@ These fields are supported for migration and view's form:
 * decimal
 * double
 * float
-
-
-
-#### Credit : 
-
-slugger laravel rest api generator it's based on rolandalla/laravelcrud [Github](https://github.com/rolandalla/laravelcrud)
-
-## Support on Beerpay
-Hey dude! Help me out for a couple of :beers:!
-
-[![Beerpay](https://beerpay.io/sluggergen/slugger/badge.svg?style=beer-square)](https://beerpay.io/sluggergen/slugger)  [![Beerpay](https://beerpay.io/sluggergen/slugger/make-wish.svg?style=flat-square)](https://beerpay.io/sluggergen/slugger?focus=wish)
-
-
-or 
-
-
-Tip us on  (https://fr.tipeee.com/slugger)
